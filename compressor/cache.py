@@ -29,6 +29,8 @@ _cachekey_func = None
 
 def get_hexdigest(plaintext, length=None):
     digest = hashlib.md5(smart_bytes(plaintext)).hexdigest()
+    print "Text to generete hash from %s " % plaintext
+    print "Digest: %s" % digest
     if length:
         return digest[:length]
     return digest
@@ -79,11 +81,16 @@ def get_offline_manifest():
     global _offline_manifest
     if _offline_manifest is None:
         filename = get_offline_manifest_filename()
+        print "Downloading manifest for the first time from :%s " % filename
         if default_storage.exists(filename):
             with default_storage.open(filename) as fp:
                 _offline_manifest = json.loads(fp.read().decode('utf8'))
         else:
             _offline_manifest = {}
+        print "Offline manifest contents are :%s " % _offline_manifest
+    else:
+        print "offline manifest already cached"
+
     return _offline_manifest
 
 
