@@ -29,8 +29,6 @@ _cachekey_func = None
 
 def get_hexdigest(plaintext, length=None):
     digest = hashlib.md5(smart_bytes(plaintext)).hexdigest()
-    print "Text to generete hash from %s " % plaintext.encode('utf8')
-    print "Digest: %s" % digest
     if length:
         return digest[:length]
     return digest

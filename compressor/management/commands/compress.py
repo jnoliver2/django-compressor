@@ -99,6 +99,8 @@ class Command(NoArgsCommand):
         return loaders
 
     def __get_parser(self, engine):
+        print "Initial compression charset **************  %s" % settings.FILE_CHARSET
+
         if engine == "jinja2":
             from compressor.offline.jinja2 import Jinja2Parser
             env = settings.COMPRESS_JINJA2_GET_ENVIRONMENT()
@@ -226,6 +228,7 @@ class Command(NoArgsCommand):
                 context.push()
                 parser.process_node(template, context, node)
                 rendered = parser.render_nodelist(template, context, node)
+                print rendered
                 key = get_offline_hexdigest(rendered)
 
                 if key in offline_manifest:

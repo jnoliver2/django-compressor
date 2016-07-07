@@ -58,11 +58,16 @@ class CompressorMixin(object):
                 settings.COMPRESS_OFFLINE) or forced
 
     def render_offline(self, context, forced):
+        print "offline charset %s " % settings.FILE_CHARSET 
+        print "Context %s " % context
+
         """
         If enabled and in offline mode, and not forced check the offline cache
         and return the result if given
         """
         if self.is_offline_compression_enabled(forced) and not forced:
+            print "Original context %s " % self.get_original_content(context)
+
             key = get_offline_hexdigest(self.get_original_content(context))
             offline_manifest = get_offline_manifest()
             if key in offline_manifest:
