@@ -29,7 +29,7 @@ _cachekey_func = None
 
 def get_hexdigest(plaintext, length=None):
     digest = hashlib.md5(smart_bytes(plaintext)).hexdigest()
-    print "Text to generete hash from %s " % plaintext
+    print "Text to generete hash from %s " % plaintext.encode('utf8')
     print "Digest: %s" % digest
     if length:
         return digest[:length]
@@ -87,7 +87,7 @@ def get_offline_manifest():
                 _offline_manifest = json.loads(fp.read().decode('utf8'))
         else:
             _offline_manifest = {}
-        print "Offline manifest contents are :%s " % _offline_manifest
+        print "Offline manifest contents are :%s " % _offline_manifest.encode('utf8')
     else:
         print "offline manifest already cached"
 
