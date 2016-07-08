@@ -79,18 +79,12 @@ def get_offline_manifest():
     global _offline_manifest
     if _offline_manifest is None:
         filename = get_offline_manifest_filename()
-        print "Downloading manifest for the first time from :%s " % filename
         if default_storage.exists(filename):
             with default_storage.open(filename) as fp:
                 _offline_manifest = json.loads(fp.read().decode('utf8'))
         else:
             print "Failed to retrieve manifest"
             _offline_manifest = {}
-        if _offline_manifest:    
-            print "Offline manifest contents are :%s " % _offline_manifest.encode('utf8')
-    else:
-        print "offline manifest already cached"
-
     return _offline_manifest
 
 

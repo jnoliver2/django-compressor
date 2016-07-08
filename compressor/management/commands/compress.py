@@ -19,6 +19,8 @@ from compressor.conf import settings
 from compressor.exceptions import (OfflineGenerationError, TemplateSyntaxError,
                                    TemplateDoesNotExist)
 from compressor.templatetags.compress import CompressorNode
+import pprint
+
 
 if six.PY3:
     # there is an 'io' module in python 2.6+, but io.StringIO does not
@@ -228,6 +230,8 @@ class Command(NoArgsCommand):
                 context.push()
                 parser.process_node(template, context, node)
                 rendered = parser.render_nodelist(template, context, node)
+                print "original context"
+                pprint.pprint(rendered)
                 key = get_offline_hexdigest(rendered)
 
                 if key in offline_manifest:
