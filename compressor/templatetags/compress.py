@@ -7,7 +7,6 @@ from compressor.cache import (cache_get, cache_set, get_offline_hexdigest,
 from compressor.conf import settings
 from compressor.exceptions import OfflineGenerationError
 from compressor.utils import get_class
-import pprint
 
 register = template.Library()
 
@@ -68,9 +67,11 @@ class CompressorMixin(object):
         if self.is_offline_compression_enabled(forced) and not forced:
             print "Original context " 
 
-            pprint.pprint(self.get_original_content(context))
+            print(self.get_original_content(context))
 
             key = get_offline_hexdigest(self.get_original_content(context))
+
+            print "Key %s" % key
             offline_manifest = get_offline_manifest()
             if key in offline_manifest:
                 return offline_manifest[key]
