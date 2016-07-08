@@ -86,7 +86,7 @@ def get_offline_manifest():
         else:
             print "Failed to retrieve manifest"
             _offline_manifest = {}
-        if _offline_manifest    
+        if _offline_manifest:    
             print "Offline manifest contents are :%s " % _offline_manifest.encode('utf8')
     else:
         print "offline manifest already cached"
