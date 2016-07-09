@@ -28,6 +28,8 @@ _cachekey_func = None
 
 
 def get_hexdigest(plaintext, length=None):
+    rand_str = hashlib.md5(smart_bytes('Hello you my guy 1234567890~!@#$%^&*()')).hexdigest()
+    print "Random string key ************ %s " % rand_str
     digest = hashlib.md5(smart_bytes(plaintext)).hexdigest()
     if length:
         return digest[:length]
@@ -85,6 +87,7 @@ def get_offline_manifest():
         else:
             print "Failed to retrieve manifest"
             _offline_manifest = {}
+
     return _offline_manifest
 
 
