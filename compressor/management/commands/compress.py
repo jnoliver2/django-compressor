@@ -230,9 +230,9 @@ class Command(NoArgsCommand):
                 parser.process_node(template, context, node)
                 rendered = parser.render_nodelist(template, context, node)
                 print "template %s" % template.template_name 
-                
+
                 print "original context"
-                print(rendered)
+                print rendered
 
                 key = get_offline_hexdigest(rendered)
                 print "key %s" % key
