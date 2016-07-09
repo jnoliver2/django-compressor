@@ -229,7 +229,8 @@ class Command(NoArgsCommand):
                 context.push()
                 parser.process_node(template, context, node)
                 rendered = parser.render_nodelist(template, context, node)
-                print "template %s" % template
+                print "template %s" % template.template_name 
+                
                 print "original context"
                 print(rendered)
 
