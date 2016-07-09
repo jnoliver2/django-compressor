@@ -216,6 +216,7 @@ class Command(NoArgsCommand):
         results = []
         offline_manifest = SortedDict()
         init_context = parser.get_init_context(settings.COMPRESS_OFFLINE_CONTEXT)
+        print "Init Context %s " % init_context
 
         for template, nodes in compressor_nodes.items():
             context = Context(init_context)
