@@ -1,4 +1,3 @@
-                print "template %s" % template.template_name 
 # flake8: noqa
 import os
 import sys
