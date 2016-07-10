@@ -232,7 +232,7 @@ class Command(NoArgsCommand):
                 print "template %s" % template.template_name 
 
                 print "original context"
-                print node
+                print rendered
 
                 key = get_offline_hexdigest(rendered)
                 print "key %s" % key
