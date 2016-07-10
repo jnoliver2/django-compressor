@@ -1,3 +1,4 @@
+                print "template %s" % template.template_name 
 # flake8: noqa
 import os
 import sys
@@ -216,7 +217,6 @@ class Command(NoArgsCommand):
         results = []
         offline_manifest = SortedDict()
         init_context = parser.get_init_context(settings.COMPRESS_OFFLINE_CONTEXT)
-        print "Init Context %s " % init_context
 
         for template, nodes in compressor_nodes.items():
             context = Context(init_context)
@@ -233,7 +233,7 @@ class Command(NoArgsCommand):
                 print "template %s" % template.template_name 
 
                 print "original context"
-                print rendered
+                print node
 
                 key = get_offline_hexdigest(rendered)
                 print "key %s" % key

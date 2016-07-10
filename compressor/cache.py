@@ -28,10 +28,7 @@ _cachekey_func = None
 
 
 def get_hexdigest(plaintext, length=None):
-    print plaintext
-
     digest = hashlib.sha1(smart_bytes(plaintext)).hexdigest()
-    print digest
     if length:
         return digest[:length]
     return digest
