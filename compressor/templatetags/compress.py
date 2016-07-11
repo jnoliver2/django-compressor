@@ -7,6 +7,7 @@ from compressor.cache import (cache_get, cache_set, get_offline_hexdigest,
 from compressor.conf import settings
 from compressor.exceptions import OfflineGenerationError
 from compressor.utils import get_class
+import sys
 
 register = template.Library()
 
@@ -58,6 +59,7 @@ class CompressorMixin(object):
                 settings.COMPRESS_OFFLINE) or forced
 
     def render_offline(self, context, forced):
+        print "SYetem Default encoding ************* %s" % sys.getdefaultencoding()
 
 
         """

@@ -122,6 +122,10 @@ class Command(NoArgsCommand):
         The result is cached with a cache-key derived from the content of the
         compress nodes (not the content of the possibly linked files!).
         """
+
+        reload(sys)     
+        sys.setdefaultencoding("utf-8")
+        print "SYetem Default encoding ************* %s" % sys.getdefaultencoding()
         extensions = options.get('extensions')
         extensions = self.handle_extensions(extensions or ['html'])
         verbosity = int(options.get("verbosity", 0))
