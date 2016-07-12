@@ -60,6 +60,7 @@ class CompressorMixin(object):
 
     def render_offline(self, context, forced):
         print "SYetem Default encoding ************* %s" % sys.getdefaultencoding()
+        print "System Charset %s " % settings.FILE_CHARSET 
 
 
         """
