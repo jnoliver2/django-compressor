@@ -232,6 +232,7 @@ class Command(NoArgsCommand):
             for node in nodes:
                 context.push()
                 parser.process_node(template, context, node)
+                print "Context: %s" % context
                 rendered = parser.render_nodelist(template, context, node)
                 print "template %s" % template.template_name 
 
