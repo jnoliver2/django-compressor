@@ -71,6 +71,7 @@ class CompressorMixin(object):
             print "Original context " 
 
             print(self.get_original_content(context))
+            print "Context: %s" % context
 
             key = get_offline_hexdigest(self.get_original_content(context))
 
